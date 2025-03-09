@@ -1,0 +1,18 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: TIL-Alarm Bot
+
+on:
+  schedule: # UTC+9 기준 3시 실행
+    - cron:  "0 12 * * *"
+
+jobs:
+  message:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Discord Webhook Action
+      uses: tsickert/discord-webhook@v5.3.0
+      with:
+        webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
+        content: "TIL 작성 시간입니다! 오늘 배운 내용을 꼭 생각하면서 작성해주세요."
