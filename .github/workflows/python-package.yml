@@ -5,7 +5,7 @@ name: TIL-Alarm Bot
 
 on:
   schedule: # UTC+9 기준 3시 실행
-    - cron:  "0 12 * * *"
+    - cron: "30 12 * * *"
 
 jobs:
   message:
